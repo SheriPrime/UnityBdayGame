@@ -4446,6 +4446,7 @@ GameObject:
   - component: {fileID: 95587938}
   - component: {fileID: 95587937}
   - component: {fileID: 95587936}
+  - component: {fileID: 95587940}
   m_Layer: 5
   m_Name: interactionCanvas
   m_TagString: Untagged
@@ -4537,6 +4538,28 @@ RectTransform:
   m_AnchoredPosition: {x: 331.5, y: 186.5}
   m_SizeDelta: {x: 663, y: 373}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &95587940
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95587935}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5da6929820ceff21a9c5148785663d58, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &112746537
 GameObject:
   m_ObjectHideFlags: 0
@@ -4691,7 +4714,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::doorInteraction
   eKeyPrompt: {fileID: 50245081}
   sceneToLoad: home
-  fadeDuration: 1
+  levelLoader: {fileID: 1778421070017973570}
 --- !u!50 &112746542
 Rigidbody2D:
   serializedVersion: 5
@@ -6556,7 +6579,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -318.153, y: -169.134, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.3625, z: 0.5}
+  m_LocalScale: {x: 0.4, y: 0.58000004, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 95587939}
@@ -6789,7 +6812,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 13.1, y: 16.93, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 0}
+  m_LocalScale: {x: -1.15, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -6854,7 +6877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Interaction
   eKeyPrompt: {fileID: 750370244}
   sceneToLoad: bunnyGame
-  fadeDuration: 5
+  levelLoader: {fileID: 1778421070017973570}
 --- !u!1 &1360315336
 GameObject:
   m_ObjectHideFlags: 0
@@ -12612,6 +12635,74 @@ Transform:
   - {fileID: 683112030}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1778421070017973567
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1722225929723757008, guid: ce48906be765e0956a7bfa4e25852b4e, type: 3}
+      propertyPath: m_Name
+      value: levelLoader
+      objectReference: {fileID: 0}
+    - target: {fileID: 6171572746023403272, guid: ce48906be765e0956a7bfa4e25852b4e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6171572746023403272, guid: ce48906be765e0956a7bfa4e25852b4e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6171572746023403272, guid: ce48906be765e0956a7bfa4e25852b4e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6171572746023403272, guid: ce48906be765e0956a7bfa4e25852b4e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6171572746023403272, guid: ce48906be765e0956a7bfa4e25852b4e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6171572746023403272, guid: ce48906be765e0956a7bfa4e25852b4e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6171572746023403272, guid: ce48906be765e0956a7bfa4e25852b4e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6171572746023403272, guid: ce48906be765e0956a7bfa4e25852b4e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6171572746023403272, guid: ce48906be765e0956a7bfa4e25852b4e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6171572746023403272, guid: ce48906be765e0956a7bfa4e25852b4e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ce48906be765e0956a7bfa4e25852b4e, type: 3}
+--- !u!114 &1778421070017973570 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2294110884445357818, guid: ce48906be765e0956a7bfa4e25852b4e, type: 3}
+  m_PrefabInstance: {fileID: 1778421070017973567}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85dc1d558807d24f28e15a33f9ed830b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelLoader
 --- !u!1001 &3300573019936062246
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12686,3 +12777,4 @@ SceneRoots:
   - {fileID: 95587939}
   - {fileID: 1714633217}
   - {fileID: 1250437828}
+  - {fileID: 1778421070017973567}
