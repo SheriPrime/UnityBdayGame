@@ -3,14 +3,17 @@ using UnityEngine;
 public class movementBunny : MonoBehaviour
 {
     private float horizontalInput;
-    private float jumpForce = 4f;
-    private float moveSpeed = 4f;
-
+    public float jumpForce;
+    public float moveSpeed;
+    private Rigidbody2D rb;
     private Animator animator;
+    private bool isGrounded = true;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -18,29 +21,50 @@ public class movementBunny : MonoBehaviour
     {
         horizontalInput = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
         transform.Translate(horizontalInput, 0, 0);
-        if (horizontalInput > 0)
+        if (horizontalInput !=0)
         {
+            // Debug.Log("H input != 0");
             animator.SetBool("isRunning", true);
-            transform.localScale = new Vector3(-0.3f, 0.3f, 0.3f); // Face right
-        }
-        else if (horizontalInput < 0)
-        {
-            animator.SetBool("isRunning", true);
-            transform.localScale = new Vector3(0.3f, 0.3f, 0.3f); // Face left
+            if (horizontalInput > 0)
+            {
+                // Debug.Log("H input > 0");
+                transform.localScale = new Vector3(-0.3f, 0.3f, 0.3f); // Face right
+            }
+            else if (horizontalInput < 0)
+            {
+                // Debug.Log("H input < 0");
+                transform.localScale = new Vector3(0.3f, 0.3f, 0.3f); // Face left
+            }
         }
         else
         {
+            // Debug.Log("H input = 0");
             animator.SetBool("isRunning", false);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetAxis("Jump") != 0 && isGrounded)
         {
-            GetComponent<Rigidbody2D>().linearVelocity = Vector2.up * jumpForce * Time.deltaTime;
             animator.SetBool("isJumping", true);
+            Jump();
         }
-        else if (Input.GetKeyUp(KeyCode.Space))
+        else
         {
             animator.SetBool("isJumping", false);
+        }
+    }
+
+    void Jump()
+    {
+        // Apply an upward force as an impulse for an immediate jump
+        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        isGrounded = false; // Player is now in the air
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
         }
     }
 }

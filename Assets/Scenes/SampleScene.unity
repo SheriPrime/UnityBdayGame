@@ -4571,8 +4571,8 @@ GameObject:
   - component: {fileID: 112746540}
   - component: {fileID: 112746539}
   - component: {fileID: 112746538}
-  - component: {fileID: 112746541}
   - component: {fileID: 112746542}
+  - component: {fileID: 112746543}
   m_Layer: 0
   m_Name: door
   m_TagString: Untagged
@@ -4700,21 +4700,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &112746541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 112746537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7f5c4b877db17982b1d48f20ebe43d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::doorInteraction
-  eKeyPrompt: {fileID: 50245081}
-  sceneToLoad: home
-  levelLoader: {fileID: 1778421070017973570}
 --- !u!50 &112746542
 Rigidbody2D:
   serializedVersion: 5
@@ -4742,6 +4727,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &112746543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112746537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4f4f871dbd62f4d887a8f4c41552076, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
+  sceneToLoad: home
+  levelLoader: {fileID: 1778421070017973570}
 --- !u!1 &154905886
 GameObject:
   m_ObjectHideFlags: 0
@@ -6631,6 +6630,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0.005964756, y: 0.029824257}
   m_Size: {x: 0.7971945, y: 1.0596485}
   m_Direction: 0
+--- !u!114 &844132898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 844132889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ac0228986dc0e9a960bf226488a699, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
+  eKeyPrompt: {fileID: 50245081}
 --- !u!1 &994021934
 GameObject:
   m_ObjectHideFlags: 0
@@ -12715,6 +12727,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 3744271184330805928, guid: c77af699b40e385b686c4e49050837fc, type: 3}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6092940819693496088, guid: c77af699b40e385b686c4e49050837fc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.65
@@ -12755,13 +12771,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6596548897509030844, guid: c77af699b40e385b686c4e49050837fc, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2786902273285736072, guid: c77af699b40e385b686c4e49050837fc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 844132897}
+    - targetCorrespondingSourceObject: {fileID: 2786902273285736072, guid: c77af699b40e385b686c4e49050837fc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 844132898}
   m_SourcePrefab: {fileID: 100100000, guid: c77af699b40e385b686c4e49050837fc, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
