@@ -9,6 +9,9 @@ public class movementBunny : MonoBehaviour
     private Animator animator;
     private bool isGrounded = true;
 
+    // Reference to the bounce force
+    public float bounceForce = 5f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -67,4 +70,18 @@ public class movementBunny : MonoBehaviour
             isGrounded = true;
         }
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+{
+    if (other.CompareTag("Enemy") && rb.linearVelocity.y < 0)
+    {
+        // Get the Enemy script from the parent
+        Enemy enemy = other.GetComponentInParent<Enemy>();
+        if (enemy != null)
+        {
+            enemy.Die();
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, bounceForce);
+        }
+    }
+}
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class NPC : MonoBehaviour, IInteractable
@@ -11,18 +12,24 @@ public class NPC : MonoBehaviour, IInteractable
     public TMP_Text dialogueText, nameText;
     public Image npcPortrait;
 
+    public string sceneToLoad;
+    public LevelLoader levelLoader;
+    private bool isLoading = false;
+
     private int currentLineIndex = 0;
     private bool isDialogueActive, isTyping;
 
     public string GetInteractPrompt()
     {
-        return !isDialogueActive ? "Talk" : "Continue";
+        return "Press E to talk";
     }
 
     public void Interact()
     {
-        if (!isDialogueActive || dialogue == null)
+        if (dialogue == null && !isLoading)
         {
+            isLoading = true;
+            StartCoroutine(LoadWithTransition());
             return;
         }
 
@@ -93,5 +100,18 @@ public class NPC : MonoBehaviour, IInteractable
         isDialogueActive = false;
         dialogueText.SetText("");
         dialogueUI.SetActive(false);
+        
+        // Load next scene if one is specified
+        if (!string.IsNullOrEmpty(sceneToLoad) && levelLoader != null && currentLineIndex >= dialogue.dialogueLines.Length)
+        {
+            StartCoroutine(LoadWithTransition());
+        }
+    }
+
+    private IEnumerator LoadWithTransition()
+    {
+        levelLoader.transition.SetTrigger("Start");
+        yield return new WaitForSeconds(levelLoader.transitionTime);
+        SceneManager.LoadScene(sceneToLoad);
     }
 }

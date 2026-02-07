@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    public GameObject eKeyPrompt;
+    public GameObject eKeyPrompt; // This is now a child of the player
     private IInteractable currentInteractable;
     private bool canInteract = false;
 

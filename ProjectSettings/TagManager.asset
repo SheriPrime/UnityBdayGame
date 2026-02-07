@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - Water
+  - Enemy
+  - leftCollider
+  - rightCollider
   layers:
   - Default
   - TransparentFX

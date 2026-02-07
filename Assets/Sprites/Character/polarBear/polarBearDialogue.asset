@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3372f1d10bda5cdb4b47d067ab36a4, type: 3}
   m_Name: polarBearDialogue
   m_EditorClassIdentifier: Assembly-CSharp::npcDialogue
-  npcName: 
-  npcPortrait: {fileID: 0}
-  dialogueLines: []
-  autoAdvance: 
+  npcName: Polar Bear
+  npcPortrait: {fileID: -2554515505354240850, guid: 525563f902c7acd8ea405b1dd411736f, type: 3}
+  dialogueLines:
+  - Hi! How are you doing?
+  - 'I can feel that you are capable of great things. '
+  - 'I wanna give you a reward but you have to help me in getting me some food first. '
+  - well yeah lets go!
+  autoAdvance: 01010100
   typingSpeed: 0.05
-  typingSound: {fileID: 0}
+  typingSound: {fileID: 8300000, guid: da69796324c9d94a78d4c442d9b4935e, type: 3}
   voicePitch: 1
   autoAdvanceDelay: 2
