@@ -1585,6 +1585,17 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &942576691 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2294110884445357818, guid: ce48906be765e0956a7bfa4e25852b4e, type: 3}
+  m_PrefabInstance: {fileID: 1035596695}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85dc1d558807d24f28e15a33f9ed830b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelLoader
 --- !u!1 &1010063598
 GameObject:
   m_ObjectHideFlags: 0
@@ -1988,9 +1999,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7f5c4b877db17982b1d48f20ebe43d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interaction
-  eKeyPrompt: {fileID: 0}
-  sceneToLoad: 
-  levelLoader: {fileID: 0}
 --- !u!61 &1161628078
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2121,6 +2129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1564654881}
   - component: {fileID: 1564654882}
+  - component: {fileID: 1564654883}
   m_Layer: 0
   m_Name: exitHomeTrigger
   m_TagString: Untagged
@@ -2189,6 +2198,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.8115169, y: 0.11412954}
   m_EdgeRadius: 0
+--- !u!114 &1564654883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564654880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4f4f871dbd62f4d887a8f4c41552076, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
+  sceneToLoad: EnterLobby
+  levelLoader: {fileID: 942576691}
 --- !u!1 &1649137509
 GameObject:
   m_ObjectHideFlags: 0
