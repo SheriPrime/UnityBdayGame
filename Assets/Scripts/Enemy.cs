@@ -17,7 +17,6 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Enemy collided with: " + other.name);
         // Hit patrol boundaries
         if (other.CompareTag("rightCollider") || other.CompareTag("leftCollider"))
         {
@@ -32,7 +31,6 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
-        Debug.Log("Enemy died!");
         Destroy(gameObject);
     }
 }

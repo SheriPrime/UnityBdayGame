@@ -7,10 +7,10 @@ public class movementBunny : MonoBehaviour
     public float moveSpeed;
     private Rigidbody2D rb;
     private Animator animator;
-    private bool isGrounded = true;
+    public bool isGrounded = true;
 
     // Reference to the bounce force
-    public float bounceForce = 5f;
+    public float bounceForce = 3f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
