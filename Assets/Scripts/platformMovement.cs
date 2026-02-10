@@ -4,7 +4,6 @@ public class platformMovement : MonoBehaviour
 {
     bool isMoving = false;
     float moveSpeed = 2f;
-    float direction = 1f; // -1 for down, 1 for up
     bool reachedTop = false;
     
     void Update()
