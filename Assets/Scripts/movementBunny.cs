@@ -54,6 +54,17 @@ public class movementBunny : MonoBehaviour
         {
             animator.SetBool("isJumping", false);
         }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Space key pressed");
+            // Perform action for Space key
+            animator.SetBool("chop_right", true);
+        }
+        else
+        {
+            animator.SetBool("chop_right", false);
+        }
     }
 
     void Jump()
@@ -72,16 +83,21 @@ public class movementBunny : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other)
-{
-    if (other.CompareTag("Enemy") && rb.linearVelocity.y < 0)
     {
-        // Get the Enemy script from the parent
-        Enemy enemy = other.GetComponentInParent<Enemy>();
-        if (enemy != null)
+        if (other.CompareTag("Enemy") && rb.linearVelocity.y < 0)
         {
-            enemy.Die();
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, bounceForce);
+            // Get the Enemy script from the parent
+            Enemy enemy = other.GetComponentInParent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.Die();
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, bounceForce);
+            }
+        }
+        if (other.CompareTag("coin"))
+        {
+            CoinUI.coinCount++;
+            Destroy(other.gameObject);
         }
     }
-}
 }

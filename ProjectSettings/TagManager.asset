@@ -11,6 +11,7 @@ TagManager:
   - rightCollider
   - platform
   - platformHeight
+  - coin
   layers:
   - Default
   - TransparentFX
@@ -47,6 +48,18 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: -3
+    uniqueID: 130180583
+    locked: 0
+  - name: -2
+    uniqueID: 3064078013
+    locked: 0
+  - name: -1
+    uniqueID: 74197589
+    locked: 0
+  - name: 0
+    uniqueID: 1944231943
     locked: 0
   - name: underground
     uniqueID: 3703456077
