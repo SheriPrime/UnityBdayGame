@@ -12,6 +12,7 @@ TagManager:
   - platform
   - platformHeight
   - coin
+  - Spike
   layers:
   - Default
   - TransparentFX

@@ -8,7 +8,7 @@ public class movementBunny : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     public bool isGrounded = true;
-
+    Enemy enemy;
     // Reference to the bounce force
     public float bounceForce = 3f;
 
@@ -51,19 +51,8 @@ public class movementBunny : MonoBehaviour
             Jump();
         }
         else
-        {
+        { 
             animator.SetBool("isJumping", false);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("Space key pressed");
-            // Perform action for Space key
-            animator.SetBool("chop_right", true);
-        }
-        else
-        {
-            animator.SetBool("chop_right", false);
         }
     }
 
@@ -87,7 +76,7 @@ public class movementBunny : MonoBehaviour
         if (other.CompareTag("Enemy") && rb.linearVelocity.y < 0)
         {
             // Get the Enemy script from the parent
-            Enemy enemy = other.GetComponentInParent<Enemy>();
+            enemy = other.GetComponentInParent<Enemy>();
             if (enemy != null)
             {
                 enemy.Die();
