@@ -10,17 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef3372f1d10bda5cdb4b47d067ab36a4, type: 3}
-  m_Name: polarBearDialogue
+  m_Name: chicken
   m_EditorClassIdentifier: Assembly-CSharp::npcDialogue
-  npcName: Polar Bear
-  npcPortrait: {fileID: 2434442869005878607, guid: acc16a28f3ff8da1a87b330895efe01c, type: 3}
+  npcName: Chicken
+  npcPortrait: {fileID: 8560451000399327191, guid: 03185e1a6c08e9c9b891df7b91d3caae, type: 3}
   dialogueLines:
-  - Hi! How are you doing?
-  - 'I can feel that you are capable of great things. '
-  - 'I wanna give you a reward but you have to help me in getting me some food first. '
-  - well yeah lets go!
-  autoAdvance: 01010100
+  - Hi!
+  - Hello!
+  - help my son
+  - umm
+  - i said my son need help. my little chickoo
+  - ok les go
+  speakers: 000000000100000000000000010000000000000001000000
+  autoAdvance: 010101010100
   typingSpeed: 0.05
-  typingSound: {fileID: 8300000, guid: da69796324c9d94a78d4c442d9b4935e, type: 3}
+  typingSound: {fileID: 8300000, guid: 8cc3e8e5ce83b8258b557447e7475fb8, type: 3}
   voicePitch: 1
   autoAdvanceDelay: 2

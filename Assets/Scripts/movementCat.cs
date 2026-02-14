@@ -5,8 +5,6 @@ public class movementCat : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
     private Animator animator;
-
-    private string lastDirection = "down";
     private bool isChopping = false;
 
     // Detection settings
@@ -46,22 +44,18 @@ public class movementCat : MonoBehaviour
         if (horizontalInput > 0)
         {
             animator.SetBool("right", true);
-            lastDirection = "right";
         }
         else if (horizontalInput < 0)
         {
             animator.SetBool("left", true);
-            lastDirection = "left";
         }
         else if (verticalInput > 0)
         {
             animator.SetBool("up", true);
-            lastDirection = "up";
         }
         else if (verticalInput < 0)
         {
             animator.SetBool("down", true);
-            lastDirection = "down";
         }
 
         transform.Translate(horizontalInput, verticalInput, 0);

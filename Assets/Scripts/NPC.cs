@@ -1,6 +1,5 @@
 using System.Collections;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,13 +10,14 @@ public class NPC : MonoBehaviour, IInteractable
     public GameObject dialogueUI;
     public TMP_Text dialogueText, nameText;
     public Image npcPortrait;
-
+    public Sprite playerPortrait; // Add your player sprite here
     public string sceneToLoad;
     public LevelLoader levelLoader;
     private bool isLoading = false;
-
     private int currentLineIndex = 0;
     private bool isDialogueActive, isTyping;
+
+    public AudioSource audioSource;
 
     public string GetInteractPrompt()
     {
@@ -47,10 +47,7 @@ public class NPC : MonoBehaviour, IInteractable
     {
         isDialogueActive = true;
         currentLineIndex = 0;
-        nameText.text = dialogue.npcName;
-        npcPortrait.sprite = dialogue.npcPortrait;
         dialogueUI.SetActive(true);
-
         StartCoroutine(ShowCurrentDialogueLine());
     }
 
@@ -79,13 +76,30 @@ public class NPC : MonoBehaviour, IInteractable
     {
         isTyping = true;
         dialogueText.SetText("");
+        
+        // Set speaker name and portrait
+        npcDialogue.Speaker currentSpeaker = dialogue.speakers[currentLineIndex];
+        if (currentSpeaker == npcDialogue.Speaker.NPC)
+        {
+            nameText.text = dialogue.npcName;
+            npcPortrait.sprite = dialogue.npcPortrait;
+        }
+        else
+        {
+            nameText.text = "You";
+            npcPortrait.sprite = playerPortrait;
+        }
 
         foreach (char letter in dialogue.dialogueLines[currentLineIndex])
         {
             dialogueText.text += letter;
+            if (dialogue.typingSound != null)
+            {
+                audioSource.pitch = dialogue.voicePitch;
+                audioSource.PlayOneShot(dialogue.typingSound);
+            }
             yield return new WaitForSeconds(dialogue.typingSpeed);
         }
-
         isTyping = false;
 
         if (dialogue.autoAdvance.Length > currentLineIndex && dialogue.autoAdvance[currentLineIndex])
@@ -100,9 +114,8 @@ public class NPC : MonoBehaviour, IInteractable
         isDialogueActive = false;
         dialogueText.SetText("");
         dialogueUI.SetActive(false);
-        
-        // Load next scene if one is specified
-        if (!string.IsNullOrEmpty(sceneToLoad) && levelLoader != null && currentLineIndex >= dialogue.dialogueLines.Length)
+
+        if (!string.IsNullOrEmpty(sceneToLoad) && levelLoader != null && currentLineIndex == dialogue.dialogueLines.Length - 1)
         {
             StartCoroutine(LoadWithTransition());
         }
