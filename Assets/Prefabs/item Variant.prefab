@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4531339529967798383
+--- !u!1001 &7929513951923722972
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -78,11 +78,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8552125279337355193, guid: ba99f3553d12f7c71a64e1383b44a846, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 862.6142
+      value: 14.27263
       objectReference: {fileID: 0}
     - target: {fileID: 8552125279337355193, guid: ba99f3553d12f7c71a64e1383b44a846, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 591.3894
+      value: 27.71727
       objectReference: {fileID: 0}
     - target: {fileID: 8552125279337355193, guid: ba99f3553d12f7c71a64e1383b44a846, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

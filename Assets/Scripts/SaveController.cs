@@ -5,14 +5,15 @@ using UnityEngine;
 public class SaveController : MonoBehaviour
 {
     private string savelocation;
+    private InventoryController inventoryController;
 
     void Start()
     {
-        savelocation = Path.Combine(Application.persistentDataPath, "save.json");
-        string documentsPath = Path.Combine(System.Environment.GetFolderPath
-                        (System.Environment.SpecialFolder.MyDocuments), "wissgame_save_path.txt");
-        File.WriteAllText(documentsPath, savelocation);
-        
+        savelocation = Path.Combine(Application.persistentDataPath, "savefile.json");
+        inventoryController = FindAnyObjectByType<InventoryController>(); 
+
+        LoadGame();
+
         // Small delay to ensure scene is fully loaded
         Invoke(nameof(LoadGame), 0.1f);
     }
@@ -21,30 +22,13 @@ public class SaveController : MonoBehaviour
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         CinemachineConfiner2D confiner = FindAnyObjectByType<CinemachineConfiner2D>();
-
-        // Check if required objects exist
-        if (player == null)
-        {
-            Debug.LogError("SaveGame: No GameObject with tag 'Player' found!");
-            return;
-        }
-
-        if (confiner == null)
-        {
-            Debug.LogError("SaveGame: No CinemachineConfiner found in scene!");
-            return;
-        }
-
-        if (confiner.BoundingShape2D == null)
-        {
-            Debug.LogError("SaveGame: CinemachineConfiner has no bounding shape assigned!");
-            return;
-        }
+        
 
         SaveData data = new SaveData
         {
             playerPosition = player.transform.position,
-            mapBoundary = confiner.BoundingShape2D.gameObject.name
+            mapBoundary = confiner.BoundingShape2D.gameObject.name,
+            inventoryItems = inventoryController.GetInventoryItems()
         };
 
         File.WriteAllText(savelocation, JsonUtility.ToJson(data));
@@ -53,51 +37,16 @@ public class SaveController : MonoBehaviour
 
     public void LoadGame()
     {
-        if (!File.Exists(savelocation))
+        if (File.Exists(savelocation))
         {
-            Debug.Log("No save file found. Creating new save...");
-            SaveGame();
-            return;
+            SaveData data = JsonUtility.FromJson<SaveData>(File.ReadAllText(savelocation));
+            GameObject.FindGameObjectWithTag("Player").transform.position = data.playerPosition;
+            FindAnyObjectByType<CinemachineConfiner2D>().BoundingShape2D = GameObject.Find(data.mapBoundary).GetComponent<PolygonCollider2D>();
+            inventoryController.SetInventoryItems(data.inventoryItems);
         }
-
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        CinemachineConfiner2D confiner = FindAnyObjectByType<CinemachineConfiner2D>();
-
-        // Check if required objects exist
-        if (player == null)
+        else
         {
-            Debug.LogError("LoadGame: No GameObject with tag 'Player' found!");
-            return;
+            SaveGame(); // Create a new save file if it doesn't exist
         }
-
-        if (confiner == null)
-        {
-            Debug.LogError("LoadGame: No CinemachineConfiner found in scene!");
-            return;
-        }
-
-        // Load the save data
-        SaveData data = JsonUtility.FromJson<SaveData>(File.ReadAllText(savelocation));
-
-        // Apply player position
-        player.transform.position = data.playerPosition;
-
-        // Find and apply map boundary
-        GameObject boundaryObject = GameObject.Find(data.mapBoundary);
-        if (boundaryObject == null)
-        {
-            Debug.LogError($"LoadGame: Boundary object '{data.mapBoundary}' not found in scene!");
-            return;
-        }
-
-        PolygonCollider2D boundary = boundaryObject.GetComponent<PolygonCollider2D>();
-        if (boundary == null)
-        {
-            Debug.LogError($"LoadGame: Object '{data.mapBoundary}' has no PolygonCollider2D component!");
-            return;
-        }
-
-        confiner.BoundingShape2D = boundary;
-        Debug.Log($"Game loaded from: {savelocation}");
     }
 }

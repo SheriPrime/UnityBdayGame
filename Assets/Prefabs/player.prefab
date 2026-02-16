@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 408443742475996112}
   - component: {fileID: 3744271184330805928}
   - component: {fileID: 5936123975102562878}
-  - component: {fileID: 3700366486422000359}
   - component: {fileID: 4017555255425185704}
+  - component: {fileID: 3700366486422000359}
   - component: {fileID: 5867957462684974558}
   m_Layer: 0
   m_Name: player
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -344352299
-  m_SortingLayer: 6
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7595986285605212588, guid: fb8be8f44e689b60393bc6460206b48b, type: 3}
@@ -146,18 +146,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3700366486422000359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2786902273285736072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7334529f74ad5b35966a7d6e636eaea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::movement
 --- !u!70 &4017555255425185704
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -195,6 +183,23 @@ CapsuleCollider2D:
   m_Offset: {x: 0.005964756, y: 0.029824257}
   m_Size: {x: 0.7971945, y: 1.0596485}
   m_Direction: 0
+--- !u!114 &3700366486422000359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2786902273285736072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7334529f74ad5b35966a7d6e636eaea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::movement
+  detectionRange: 1.5
+  treeLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  treeChopper: {fileID: 0}
 --- !u!114 &5867957462684974558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,7 +291,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -344352299
-  m_SortingLayer: 6
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 6626051464634953487, guid: f858a2563255adc0e8ee29a40e19dd97, type: 3}
