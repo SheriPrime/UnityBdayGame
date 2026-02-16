@@ -10,19 +10,18 @@ public class SaveController : MonoBehaviour
     void Start()
     {
         savelocation = Path.Combine(Application.persistentDataPath, "savefile.json");
-        inventoryController = FindAnyObjectByType<InventoryController>(); 
+        inventoryController = FindFirstObjectByType<InventoryController>(); 
 
         LoadGame();
 
         // Small delay to ensure scene is fully loaded
-        Invoke(nameof(LoadGame), 0.1f);
+        // Invoke(nameof(LoadGame), 0.1f);
     }
 
     public void SaveGame()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         CinemachineConfiner2D confiner = FindAnyObjectByType<CinemachineConfiner2D>();
-        
 
         SaveData data = new SaveData
         {

@@ -6,7 +6,7 @@ public class PlayerItemCollector : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        inventoryController = FindAnyObjectByType<InventoryController>();
+        inventoryController = FindFirstObjectByType<InventoryController>();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -14,7 +14,14 @@ public class PlayerItemCollector : MonoBehaviour
         if (collision.CompareTag("Item"))
         {
             Item item = collision.GetComponent<Item>();
-            
+            if (item != null)
+            {
+                bool added = inventoryController.AddItem(collision.gameObject);
+                if (added)
+                {
+                    Destroy(collision.gameObject);
+                }
+            }
         }
     }
 }

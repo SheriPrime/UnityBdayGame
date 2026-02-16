@@ -28,9 +28,8 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         canvasGroup.alpha = 1f;
 
         Slot targetSlot = eventData.pointerEnter?.GetComponent<Slot>();
-        Slot originalSlot = originalParent.GetComponent<Slot>();
 
-        if(targetSlot == null)
+        if (targetSlot == null)
         {
             GameObject item = eventData.pointerEnter;
             if (item != null)
@@ -38,7 +37,8 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
                 targetSlot = item.GetComponentInParent<Slot>();
             }
         }
-
+        
+        Slot originalSlot = originalParent.GetComponent<Slot>();
         if (targetSlot != null)
         {
             if (targetSlot.currentItem != null)
@@ -53,7 +53,12 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
             }
             transform.SetParent(targetSlot.transform);
+            targetSlot.currentItem = gameObject;
         }
-        GetComponent<RectTransform>().anchoredPosition = Vector2.zero; 
+        else
+        {
+            transform.SetParent(originalParent);
+        }
+        GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
     }
 }

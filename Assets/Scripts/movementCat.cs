@@ -18,7 +18,7 @@ public class movementCat : MonoBehaviour
     // 1. DRAG YOUR 'TREE' TILEMAP HERE IN THE INSPECTOR
     public Tilemap treeTilemap; 
     // 2. DRAG YOUR PLANK PREFAB HERE
-    // public GameObject plankPrefab; 
+    public GameObject plankPrefab; 
     
     void Start()
     {
@@ -138,10 +138,10 @@ public class movementCat : MonoBehaviour
         }
 
         // Drop Plank
-        // if (plankPrefab != null)
-        // {
-        //     Instantiate(plankPrefab, spawnPos, Quaternion.identity);
-        // }
+        if (plankPrefab != null)
+        {
+            Instantiate(plankPrefab, spawnPos, Quaternion.identity);
+        }
     }
 
     public IEnumerator WaitForAnimation(Vector3Int startPos, Vector3 spawnPos)

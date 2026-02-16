@@ -7,6 +7,7 @@ public class npcDialogue : ScriptableObject
     
     public string npcName;
     public Sprite npcPortrait;
+    [TextArea(3, 10)]
     public string[] dialogueLines;
     public Speaker[] speakers; // Who is speaking each line
     public bool[] autoAdvance;

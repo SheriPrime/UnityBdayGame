@@ -11,8 +11,8 @@ public class InventoryController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        itemDictionary = FindAnyObjectByType<ItemDictionary>();
-        
+        itemDictionary = FindFirstObjectByType<ItemDictionary>();
+
         // for (int i = 0; i < slotCount; i++)
         // {
         //     Slot slot = Instantiate(slotPrefab, inventoryUI.transform).GetComponent<Slot>();
@@ -23,6 +23,22 @@ public class InventoryController : MonoBehaviour
         //         slot.currentItem = item;
         //     }
         // }
+    }
+    
+    public bool AddItem(GameObject itemPrefab)
+    {
+        foreach (Transform transform in inventoryUI.transform)
+        {
+            Slot slot = transform.GetComponent<Slot>();
+            if (slot.currentItem == null && slot != null)
+            {
+                GameObject newItem = Instantiate(itemPrefab, transform);
+                newItem.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+                slot.currentItem = newItem;
+                return true;
+            }
+        }
+        return false; // Inventory full
     }
 
     public List<InventorySaveData> GetInventoryItems()

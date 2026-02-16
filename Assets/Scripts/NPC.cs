@@ -115,6 +115,17 @@ public class NPC : MonoBehaviour, IInteractable
         dialogueText.SetText("");
         dialogueUI.SetActive(false);
 
+        StartCoroutine(LoadWithTransition());
+    }
+
+    public void closeButton()
+    {
+        isDialogueActive = false;
+        dialogueText.SetText("");
+        dialogueUI.SetActive(false);
+
+        currentLineIndex = 0;
+
         if (!string.IsNullOrEmpty(sceneToLoad) && levelLoader != null && currentLineIndex == dialogue.dialogueLines.Length - 1)
         {
             StartCoroutine(LoadWithTransition());

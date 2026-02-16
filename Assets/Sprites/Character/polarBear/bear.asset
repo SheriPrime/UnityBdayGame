@@ -15,11 +15,31 @@ MonoBehaviour:
   npcName: NPC
   npcPortrait: {fileID: 2434442869005878607, guid: acc16a28f3ff8da1a87b330895efe01c, type: 3}
   dialogueLines:
-  - aaaaaaaaaaaa
-  - zzzzzzzzzzz
-  - aaaaaaaaaa
-  speakers: 000000000100000000000000
-  autoAdvance: 010100
+  - Hey there!
+  - Oh! Hello, hello!.... Wait a minute...
+  - '*sniffs the air'
+  - Is it just me, or do you smell like birthday-ish?
+  - "Haha, yeah\u2014it's actually my birthday today."
+  - ' No kidding! Well, happy birthday to you!'
+  - You know what? I've got something that might make your day even sweeter. I've
+    got some delicious chocolate I've been saving.
+  - Chocolate? That sounds amazing!
+  - '*rubs belly'
+  - Here's the thing though... I'm absolutely starving right now, and I can't think
+    straight on an empty stomach.
+  - I need to get across the ravine to where all the fish are, but... it's full of
+    spikes and those nasty little monsters.
+  - You need help getting through?
+  - Exactly! I'm big and strong, sure, but I'm not exactly nimble when I'm this hungry.
+  - looks at MC hopefully
+  - "If you could guide me through that treacherous path\u2014you know, help me dodge
+    the spikes, avoid those monsters\u2014I'll share my chocolate with you as a birthday
+    gift. Fair trade?"
+  - Deal! Let's get you fed.
+  - Wonderful! Alright, I'm putting my paws in your hands.
+  - Let's do this before I pass out from hunger!
+  speakers: 010000000000000000000000000000000100000000000000000000000100000000000000000000000000000001000000000000000000000000000000010000000000000000000000
+  autoAdvance: 010101010101010101010101010101010100
   typingSpeed: 0.05
   typingSound: {fileID: 8300000, guid: 8cc3e8e5ce83b8258b557447e7475fb8, type: 3}
   voicePitch: 1
