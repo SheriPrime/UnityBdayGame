@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f762dd9430dd1c6f48f0b986c5eebdd1, type: 3}
+  m_Name: wheat
+  m_EditorClassIdentifier: Assembly-CSharp::CropDefinition
+  cropId: wheat
+  growthTiles:
+  - {fileID: 11400000, guid: 3c04a11d5ba9a46f49c70e2f211bf83f, type: 2}
+  - {fileID: 11400000, guid: 3c04a11d5ba9a46f49c70e2f211bf83f, type: 2}
+  - {fileID: 11400000, guid: 99ba68b0839773c0abb5d30214c0e058, type: 2}
+  - {fileID: 11400000, guid: 51e21ffed4a226d1aac602b83f780795, type: 2}
+  - {fileID: 11400000, guid: 4b76004d977018b3896219168b4705ec, type: 2}
+  - {fileID: 11400000, guid: b5b88e165df74ab9fb3e957ecd2113b7, type: 2}
+  secondsPerStage: 20
+  harvestYield: 1

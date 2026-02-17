@@ -72,6 +72,12 @@ TagManager:
   - name: foreground
     uniqueID: 2087763321
     locked: 0
+  - name: soil
+    uniqueID: 3848843709
+    locked: 0
+  - name: crop
+    uniqueID: 4211078379
+    locked: 0
   - name: walkInFront
     uniqueID: 2362544257
     locked: 0
