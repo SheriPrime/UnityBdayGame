@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: itemID
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: -4948946568946434796, guid: ba99f3553d12f7c71a64e1383b44a846, type: 3}
+      propertyPath: itemName
+      value: Milk
+      objectReference: {fileID: 0}
     - target: {fileID: -3548104864157486758, guid: ba99f3553d12f7c71a64e1383b44a846, type: 3}
       propertyPath: m_Sprite
       value: 

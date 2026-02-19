@@ -13,17 +13,43 @@ MonoBehaviour:
   m_Name: chicken
   m_EditorClassIdentifier: Assembly-CSharp::npcDialogue
   npcName: Chicken
-  npcPortrait: {fileID: 8560451000399327191, guid: 03185e1a6c08e9c9b891df7b91d3caae, type: 3}
+  npcPortrait: {fileID: 3846301084710828275, guid: a138ddec2ac2a3a0389c6b47d2408f8f, type: 3}
   dialogueLines:
-  - Hi!
-  - Hello!
-  - help my son
-  - umm
-  - i said my son need help. my little chickoo
-  - ok les go
-  speakers: 000000000100000000000000010000000000000001000000
-  autoAdvance: 010101010100
+  - Hi there!
+  - "Oh! Oh dear, oh my\u2014 Hello! You seem like a capable sort. Please, I need
+    your help!"
+  - What's wrong?
+  - 'It''s my baby, my little chick! '
+  - '*flaps wings anxiously'
+  - 'One moment he was playing near the old wishing well, and the next... '
+  - voice cracks ...
+  - he just vanished! Fell right through some sort of strange portal!
+  - A portal? Where did he go?
+  - "I managed to peek through before it started closing, and I saw him\u2014he's
+    trapped in this bizarre, endless sky!"
+  - There are these horrible green pipes everywhere, and he has to keep flapping
+    just to stay airborne. shudders It's like some kind of nightmare world where
+    gravity works all wrong!
+  - That sounds terrifying. How can I help?
+  - I... I can't fly well enough to navigate that place. My wings are too old, too
+    slow. But if you could somehow guide him
+  - "be his eyes, his instincts\u2014help him flap through those dreadful pipes and
+    get back to the portal home..."
+  - I'll do it. I'll get your chick back safely.
+  - ' Oh, bless you! Bless you!'
+  - "And listen\u2014once my baby is back in my wings, I'll give you the freshest
+    eggs from my nest."
+  - I was saving them for something special, and what's more special than this? It's
+    your birthday AND you're saving my child!
+  - Don't worry. I've got this.
+  - nods nervously
+  - 'Please... be careful. He''s so small, so fragile. Just... keep him flapping.
+    Don''t let him fall. '
+  - '*voice shakes '
+  - Don't let my baby fall.
+  speakers: 0100000000000000010000000000000000000000000000000000000000000000010000000000000000000000010000000000000000000000010000000000000000000000000000000100000000000000000000000000000000000000
+  autoAdvance: 0101010101010101010101010101010101010101010100
   typingSpeed: 0.05
-  typingSound: {fileID: 8300000, guid: 8cc3e8e5ce83b8258b557447e7475fb8, type: 3}
+  typingSound: {fileID: 8300000, guid: 497263f97acfbe5728a54e59fa2587ef, type: 3}
   voicePitch: 1
   autoAdvanceDelay: 2

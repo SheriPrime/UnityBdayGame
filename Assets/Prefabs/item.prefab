@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item
   itemID: 1
+  itemName: Egg
 --- !u!212 &-3548104864157486758
 SpriteRenderer:
   serializedVersion: 2
@@ -163,7 +164,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -344352299
-  m_SortingLayer: 10
+  m_SortingLayer: 12
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 935570658831797173, guid: c9850f37a8e359afdb1599fe4f270934, type: 3}
